@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular_injector</title>
+    <script src="../angular_js/angular.js"></script>
+</head>
+<body ng-app="examplecontorller">
+    <div id="test"></div>
+    <div></div>
+    <div>
+        <input type="button" ng-click="inject()" value="inject">
+    </div>
+    <hr>
+    {{name}}
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * 创建一个injector对象, 调用injector对象的方法可以获得angular的service,
+     *      或者用来做依赖注入.
+     *
+     *      angular.injector(moduels, [strictDi]);
+     */
+    var exampleApp = angular.module("exampleApp", []);
+        exampleApp.controller('examplecontorller', ['$scope', function ($scope) {
+            $scope.name = "dd";
+            $scope.inject = function () {
+                var $injector = angular.injector(['ng']);
+                $injector.invoke(function ($http) {
+                    var scopes = angular.element(document.body).scope();
+                    scopes.name = '11';//这里可以同http请求获得数据
+                });
+            };
+        }]);
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+    <meta charset="UTF-8">
+    <title>angular_input(checkbox)</title>
+    <script src="../angular_js/angular.js"></script>
+</head>
+<body>
+    <form name="myForm" ng-controller="ExampleController">
+        Value1: <input type="checkbox" ng-model="value1"> <br />
+        Value2: <input type="checkbox" ng-model="value2" ng-true-value="'YES'" ng-false-value="'NO'"> <br />
+        <tt>value1 = {{value1}}</tt><br />
+        <tt>value2 = {{value2}}</tt><br />
+    </form>
+</body>
+</html>
+<script type="text/javascript">
+    //加载angular模块
+    angular.module('inputCheckbox', [])
+        //加载controller控制器
+        .controller('ExampleController', ['$scope', function ($scope) {
+            $scope.value1 = true;
+            $scope.value2 = 'OK'
+        }]);
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular_form</title>
+    <script src="../angular_js/angular.js"></script>
+    <style type="text/css">
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+        .my-form .ng-invalid {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <form name="myForm" ng-controller="FormController" class="my-form">
+        userType: <input name="input" ng-model="userType" readonly/>
+        <span class="error" ng-show="myForm.input.$error.required">
+            Required!
+        </span>
+        <br>
+        <tt>userType{{userType}}</tt><br>
+        <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br>
+        <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br>
+        <tt>myForm.$valid = {{myForm.$valid}}</tt><br>
+        <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br>
+    </form>
+
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * form: 实例化formController
+     *  如果指定的名称属性,则该表单控制器已发布到该名称下的当前范围
+     */
+    /**
+     * css类:
+     *  ng-valid    有效的
+     *  ng-invalid  无效的
+     *  ng-pristine 原始,简介
+     *  ng-dirty    脏的
+     *  ng-submitted 提交的
+     *
+     */
+    angular.module('formExample', [])
+            .controller('FormController', ['$scope', function ($scope) {
+        $scope.userType = 'guest';
+    }]);
+</script>

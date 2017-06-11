@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>angular_element案例及用法</title>
+    <script src="../angular_js/angular.min.js"></script>
+</head>
+<body>
+    <div id="test"element测试test></div>
+    <input type="button" onclick="button1()" value="按钮1"><br><br>
+    <input type="button" onclick="button2()" value="按钮2">
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * Dom元素 亦或是jQuery对象
+     * 用法: angular.element(element)
+     *  所传入的是htmlDom元素节点
+     *  返回值是jQuery对象
+     */
+    //使用html字符串为参数
+    function button1() {
+//        alert(angular.element('<div id="test">element测试</div>').html());
+        console.log(angular.element('<div id="test">element测试</div>').html());
+    };
+    //使用DOM元素作为参数
+    function button2() {
+        var a = document.getElementById('#test');
+//        alert(angular.element(a).html());
+        console.log(angular.element(a).html());
+    };
+</script>

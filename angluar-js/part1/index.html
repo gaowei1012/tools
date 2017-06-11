@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bind用法案例</title>
+    <link rel="stylesheet" href="css/base.css">
+    <script src="../angular_js/angular.js"></script>
+</head>
+<body>
+    <!-- angular model-->
+    <!--<div class="box">-->
+        <!--<h3>bind()用法及事例</h3>-->
+    <!--</div>-->
+</body>
+</html>
+<script type="text/javascript">
+    var self = {name: 'boy1'}
+    //带参数的函数绑定
+    var f = angular.bind(self, function (age) {//被绑定的函数
+        alert(this.name + 'is' + age + '!');
+    }, '15'); //绑定的参数可以省
+    //条用函数
+    f();
+    //不带参数
+    var m = angular.bind(self,function () {
+        alert(this.name + 'is' + age + '!');
+    });//这里的参数可以省
+    //调用
+    m(3);//调用传参
+
+
+
+</script>

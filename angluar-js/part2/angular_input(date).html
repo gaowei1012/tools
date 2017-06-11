@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ExampleController</title>
+    <script src="../angular_js/angular.js"></script>
+</head>
+<body>
+    <form name="myForm" ng-controller="DateController">
+        Pick a date in 2017:
+        <input type="date" id="exampleInput" name="input" ng-model="value"
+               placeholder="yyyy-MM-dd" min="2017-01-01" max="2020-12-22" required />
+        <span class="error" ng-show="myForm.input.$error.required">
+            Required!
+        </span>
+        <span class="error" ng-show="myForm.input.$error.date">
+            Not a valid date!
+        </span>
+        <span class="error" ng-show="myForm.input.$error.max">
+            max
+        </span>
+        <span class="error" ng-show="myForm.input.$error.min">
+            min
+        </span>
+        <br />
+        <!--<tt>value = {{value | date: "yyyy-MM-dd"}}</tt><br />-->
+        <!--<tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br />-->
+        <!--<tt>myForm.input.$error = {{myForm.input.$error}}</tt><br />-->
+        <!--<tt>myForm.$valid = {{myForm.$valid}}</tt><br />-->
+        <!--<tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br />-->
+    </form>
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * 输入日期验证和转换。在不支持HTML5的日期输入浏览器，文本元素将被使用。
+     * 在这种情况下，文本必须输入一个有效的ISO-8601日期格式（yyyy-mm-dd）
+     * 例如：2009-01-06。由于许多现代的浏览器还不支持这种类型的输入,它是提供线索
+     * 用户期望的输入格式通过一个占位符或标签的重要。
+     * 该模型必须始终是日期对象，否则将抛出一个错误。无效的日期（日期对象的gettime()是NaN）
+     * 将呈现为一个空字符串。 时区用于读/写日期的模型实例可以定义使用ngmodeloptions。
+     * 默认情况下，这是浏览器的时区。
+     */
+    angular.module('dataInputExample', [])
+        .controller('DateController', ['$scope', function ($scope) {
+            $scope.value = new Date(2017, 6, 9);
+        }]);
+</script>

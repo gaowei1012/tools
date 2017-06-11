@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular_module</title>
+    <script src="../angular_js/angular.js"></script>
+</head>
+<body ng-controller="examplecontorller">
+    <div ng-bind="dd">
+        你好
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    var  myModule = angular.module('myModule', []);
+
+    myModule.controller("examplecontorller", ["$scope", function ($scope) {
+        $scope.dd = 'aa';
+    }]);
+</script>
